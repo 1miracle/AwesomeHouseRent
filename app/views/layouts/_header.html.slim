@@ -1,0 +1,25 @@
+nav.navbar.navbar-inverse.navbar-fixed-top role="navigation"
+  .container
+    .navbar-header
+      button.navbar-toggle data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" type="button"
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      = link_to 'AwesomeHouseRent', root_path, class: 'navbar-brand'
+    #bs-example-navbar-collapse-1.collapse.navbar-collapse
+      ul.nav.navbar-nav.navbar-right
+        - if current_user
+          li
+            = link_to new_house_path do
+              | Your houses
+              span.badge #{current_user.houses.count}
+          li
+            = link_to 'Add new house', new_house_path
+          li
+            = link_to 'Sign out', destroy_user_session_path, method: :delete
+        - unless current_user
+          li
+            = link_to 'Sign in', new_user_session_path
+          li
+            = link_to 'Sign up', new_user_registration_path

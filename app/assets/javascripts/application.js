@@ -12,5 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap
+//= require bootstrap-sprockets
 //= require turbolinks
 //= require_tree .
+
+$(".alert").alert();
+window.setTimeout(function() { $(".alert").fadeOut('slow'); }, 3000);

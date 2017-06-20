@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  city: MyString
+  adress: MyString
+  rooms: 1
+  kitchen: false
+  heating: false
+  conditioner: false
+  animals_allowed: false
+  wi_fi: false
+  floor: 1
+  number_of_floors: 1
+  price_per_day: 9.99
+  price_per_month: 9.99
+
+two:
+  city: MyString
+  adress: MyString
+  rooms: 1
+  kitchen: false
+  heating: false
+  conditioner: false
+  animals_allowed: false
+  wi_fi: false
+  floor: 1
+  number_of_floors: 1
+  price_per_day: 9.99
+  price_per_month: 9.99

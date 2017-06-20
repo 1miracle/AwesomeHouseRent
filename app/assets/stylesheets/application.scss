@@ -1,0 +1,123 @@
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+
+body {
+    padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+}
+
+.slide-image {
+    width: 100%;
+}
+
+.carousel-holder {
+    margin-bottom: 30px;
+}
+
+.carousel-control,
+.item {
+    border-radius: 4px;
+}
+
+.caption {
+    height: 130px;
+    overflow: hidden;
+}
+
+.caption h4 {
+    white-space: nowrap;
+}
+
+.thumbnail img {
+    width: 100%;
+}
+
+.ratings {
+    padding-right: 10px;
+    padding-left: 10px;
+    color: #d17581;
+}
+
+.thumbnail {
+    padding: 0;
+}
+
+.thumbnail .caption-full {
+    padding: 9px;
+    color: #333;
+}
+
+footer {
+    margin: 50px 0;
+}
+
+.jumbotron {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    color: inherit;
+    background-color: #f7f7f7;
+}
+
+label {
+    margin-bottom: 0px;
+}
+
+.login {
+    padding-left: 26px;
+    padding-right: 26px;
+}
+
+.sign-up {
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.sign-up-email {
+    padding-left: 54px;
+    padding-right: 54px;
+}
+
+.sign-up-phone {
+  padding-left: 52px;
+  padding-right: 52px;
+}
+
+.sign-up-name {
+  padding-left: 38px;
+  padding-right: 38px;
+}
+
+.badge {
+    margin-left: 5px;
+}
+
+.glyphicon {
+    padding-right: 5px;
+}
+
+.wtf {
+  color: #e6e6e6;
+}
+
+.pagination > li > a {
+    color: #404142;
+}
+
+.pagination > li > a:hover {
+    color: #404142;
+}
+
+.pagination>li.active>span {
+    background-color: #222222;
+    border-color: #222222;
+}
+
+.pagination>li.active>span:hover {
+    background-color: #222222;
+    border-color: #222222;
+}
+
+#house_description {
+  max-width: 257px;
+  max-height: 150px;
+}

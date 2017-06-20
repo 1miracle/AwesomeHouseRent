@@ -1,0 +1,82 @@
+= form_for @house do |f|
+  .field
+    .input-group
+      span.input-group-addon
+        = f.label :city
+      = f.text_field :city, autocomplete: "off", class: 'form-control'
+  br
+  .field
+    .input-group
+      span.input-group-addon
+        = f.label :address
+      = f.text_field :address, autocomplete: "off", class: 'form-control'
+  br
+  .field
+    .input-group
+      span.input-group-addon
+        = f.label :rooms
+      = f.number_field :rooms, autocomplete: "off", class: 'form-control'
+  br
+  .field
+    .input-group
+      span.input-group-addon
+        = f.label :sleep_places
+      = f.number_field :sleep_places, autocomplete: "off", class: 'form-control'
+  br
+  .field
+    label.checkbox-inline
+      = f.check_box :kitchen
+      = f.label :kitchen
+    label.checkbox-inline
+      = f.check_box :heating
+      = f.label :heating
+    label.checkbox-inline
+      = f.check_box :conditioner
+      = f.label :conditioner
+    label.checkbox-inline
+      = f.check_box :wi_fi
+      = f.label :wi_fi
+    label.checkbox-inline
+      = f.check_box :animals_allowed
+      = f.label :animals_allowed
+  .field
+    .input-group
+      span.input-group-addon
+        = f.label :floor
+      = f.select :floor, options_for_select((1..50), 1), {}, {class: "form-control"}
+  br
+  .field
+    .input-group
+      span.input-group-addon
+        = f.label :number_of_floors
+      = f.select :number_of_floors, options_for_select((1..50), 1), {}, {class: "form-control"}
+  br
+  .field
+    .input-group
+      span.input-group-addon
+        = f.label :total_area
+      = f.number_field :total_area, step: :any, class: "form-control"
+      .input-group-addon sq. m.
+  br
+  .field
+    .input-group
+      span.input-group-addon
+        = f.label :price_per_day
+      = f.number_field :price_per_day, value: number_to_currency(f.object.price_per_day.to_f, delimiter: '', unit: ''), step: :any, class: "form-control"
+      .input-group-addon $
+  br
+  .field
+    .input-group
+      span.input-group-addon
+        = f.label :price_per_month
+      = f.number_field :price_per_month, value: number_to_currency(f.object.price_per_day.to_f, delimiter: '', unit: ''), step: :any, class: "form-control"
+      .input-group-addon $
+  br
+  .field
+    .input-group
+      span.input-group-addon
+        = f.label :description
+      = f.text_area :description, autocomplete: "off", class: "form-control", size: "10x4"
+  br
+  .actions
+    = f.submit "Create house", class: 'btn btn-success'
