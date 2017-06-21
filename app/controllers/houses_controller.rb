@@ -1,6 +1,6 @@
 class HousesController < ApplicationController
   before_action :set_house, only: [:edit, :show, :update, :destroy]
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:show]
 
   def index
     @houses = House.all.page(params[:page]).per_page(6)

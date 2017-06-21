@@ -1,4 +1,9 @@
 = form_for @house do |f|
+  - if @house.errors.any?
+      h2 = "#{pluralize(@house.errors.count, 'error')} prohibited this house from being saved:"
+      ul
+        - @house.errors.full_messages.each do |message|
+          li = message
   .field
     .input-group
       span.input-group-addon
