@@ -4,13 +4,27 @@
       - @houses.each do |house|
         .col-sm-4.col-lg-4.col-md-4
           .thumbnail
-            img alt="" src="http://placehold.it/320x150" /
+            - if user_signed_in?
+              - if house.user_id == current_user.id
+                span.label.label-success.pull-right Your apartment
+            = image_tag(house.photo.thumbnail, class: "photo_thumbnail")
+            / img alt="" src="http://placehold.it/320x150" /
             .caption
               h4
-                = link_to "House for sale, #{house.city}", house
-              h4 = number_to_currency(house.price_per_day)
+                = link_to "Apartment for rent, #{house.city}", house
+              span.label.label-primary
+                = number_to_currency(house.price_per_day)
+                | /per day
+              span.label.label-primary  
+                = number_to_currency(house.price_per_day)
+                | /per month
+              br
+              /.panel.panel-default
+              /  .panel-body
               p
-                = house.description
+                = truncate(house.description, length: 100, omission: '...')
+            br
+            br
             .ratings
               p.pull-right 15 reviews
               p

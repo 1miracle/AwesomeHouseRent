@@ -1,6 +1,6 @@
 class HousesController < ApplicationController
   before_action :set_house, only: [:edit, :show, :update, :destroy]
-  before_action :authenticate_user!, only: [:show]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @houses = House.all.page(params[:page]).per_page(6)
@@ -18,7 +18,7 @@ class HousesController < ApplicationController
     # binding.pry
     respond_to do |format|
       if @house.save
-        format.html { redirect_to :root, notice: 'House was successfully created' }
+        format.html { redirect_to :root, notice: 'Apartment was successfully created' }
       else
         format.html { render :new }
       end
@@ -29,7 +29,21 @@ class HousesController < ApplicationController
   end
 
   def update
-    #TODO
+    respond_to do |format|
+      if @house.update(house_params)
+        format.html { redirect_to @house, notice: 'Apartment was successfully updated' }
+        format.json
+      else
+        format.html { render :edit }
+      end
+    end
+  end
+
+  def destroy
+    @house.destroy
+    respond_to do |format|
+      format.html { redirect_to :root, notice: 'Apartment was successfully destroyed' }
+    end
   end
 
   private
@@ -39,7 +53,7 @@ class HousesController < ApplicationController
                                   :total_area, :kitchen, :heating,
                                   :conditioner, :animals_allowed, :wi_fi,
                                   :floor, :number_of_floors, :price_per_day,
-                                  :price_per_month, :description)
+                                  :price_per_month, :description, :photo)
   end
 
   def set_house

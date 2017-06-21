@@ -1,9 +1,11 @@
 class House < ApplicationRecord
   belongs_to :user
 
+  mount_uploader :photo, PictureUploader
+
   validates_presence_of :city, :address, :rooms, :sleep_places,
                         #:kitchen, :heating, :conditioner, :animals_allowed, :wi_fi,
-                        :floor, :number_of_floors
+                        :floor, :number_of_floors, :photo
   validates_inclusion_of :kitchen, :heating, :conditioner, :animals_allowed, :wi_fi, in: [true, false]
   validates :floor, numericality: { greater_than_or_equal_to: 1 }
   validates :number_of_floors, numericality: { greater_than_or_equal_to: 1 }
@@ -14,6 +16,9 @@ class House < ApplicationRecord
   validates :sleep_places, numericality: { greater_than: 0 }
   validates :description, length: { maximum: 500 }
   validate :if_there_is_at_least_one_price
+  validate :house_count_within_limit
+
+  # scope :new_house, -> { where('? = ?', created_at.strftime("%d-%m"), Date.today.strftime("%d-%m")) }
 
   private
 
@@ -23,6 +28,12 @@ class House < ApplicationRecord
         "should be at least one price")
       errors.add(:price_per_month,
         "should be at least one price")
+    end
+  end
+
+  def house_count_within_limit
+    if self.user.houses(:reload).count >= 3
+      errors.add(:base, "You reached the limit of creating apartments!")
     end
   end
 end

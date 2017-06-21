@@ -9,11 +9,12 @@ end
 
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
-gem 'carrierwave'
+gem 'carrierwave', '~> 1.1'
 gem 'coffee-rails', '~> 4.2'
 gem 'devise', '~> 4.3'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
+gem 'mini_magick'
 gem 'pg'
 gem 'puma', '~> 3.0'
 gem 'rails', '~> 5.0.2'
