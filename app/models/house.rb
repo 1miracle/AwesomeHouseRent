@@ -18,7 +18,9 @@ class House < ApplicationRecord
   validate :if_there_is_at_least_one_price
   validate :house_count_within_limit
 
-  # scope :new_house, -> { where('? = ?', created_at.strftime("%d-%m"), Date.today.strftime("%d-%m")) }
+  def self.search(query)
+    where('city LIKE ?', "%#{query}%")
+  end
 
   private
 

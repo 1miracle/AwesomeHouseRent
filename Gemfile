@@ -9,11 +9,13 @@ end
 
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
+gem 'bootstrap-slider-rails'
 gem 'carrierwave', '~> 1.1'
 gem 'coffee-rails', '~> 4.2'
 gem 'devise', '~> 4.3'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 gem 'mini_magick'
 gem 'pg'
 gem 'puma', '~> 3.0'
@@ -24,8 +26,6 @@ gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
 gem 'will_paginate', '~> 3.1', '>= 3.1.6'
 gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.1'
-# gem 'kaminari'
-# gem 'has_secure_token'
 
 group :development, :test do
   gem 'pry-rails'

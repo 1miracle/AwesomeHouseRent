@@ -1,5 +1,6 @@
 .row
   .col-md-12
+    = render 'houses/search_form'
     .row
       - @houses.each do |house|
         .col-sm-4.col-lg-4.col-md-4
@@ -7,6 +8,12 @@
             - if user_signed_in?
               - if house.user_id == current_user.id
                 span.label.label-success.pull-right Your apartment
+                span.label.label-default.pull-right
+                  = link_to edit_house_path(house) do
+                    span.glyphicon.glyphicon-pencil
+                span.label.label-danger.pull-right
+                  = link_to house_path(house), method: :delete, remote: true do
+                    span.glyphicon.glyphicon-remove.remove-x
             = image_tag(house.photo.thumbnail, class: "photo_thumbnail")
             / img alt="" src="http://placehold.it/320x150" /
             .caption
@@ -15,19 +22,17 @@
               span.label.label-primary
                 = number_to_currency(house.price_per_day)
                 | /per day
-              span.label.label-primary  
-                = number_to_currency(house.price_per_day)
+              span.label.label-primary
+                = number_to_currency(house.price_per_month)
                 | /per month
               br
-              /.panel.panel-default
-              /  .panel-body
               p
                 = truncate(house.description, length: 100, omission: '...')
             br
             br
             .ratings
-              p.pull-right 15 reviews
+              p.pull-right #{rand(1000)} reviews
               p
                 span.glyphicon.glyphicon-star
-                = house.rating
+                | #{rand(5)}
 .text-center = will_paginate @houses, renderer: BootstrapPagination::Rails

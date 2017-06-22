@@ -12,10 +12,30 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
 //= require bootstrap
+//= require bootstrap-slider
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require_tree .
 
 $(".alert-success").alert();
 window.setTimeout(function() { $(".alert-success").fadeOut('slow'); }, 3000);
+
+
+$(document).ready(function() {
+    var slider = $("#the_slider").slider({
+        range: true,
+        min: 10,
+        max: 2000,
+        values: [10, 250],
+        slide: function(event, ui) {
+            $("#min_price").val(ui.values[0]);
+            $("#max_price").val(ui.values[1]);
+        }
+    });
+    $("#min_price").val(slider.slider("values")[0]);
+    $("#max_price").val(slider.slider("values")[1]);
+});
+
+$("#ex2").slider({});

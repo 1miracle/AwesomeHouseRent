@@ -6,13 +6,12 @@ nav.navbar.navbar-inverse.navbar-fixed-top role="navigation"
         span.icon-bar
         span.icon-bar
         span.icon-bar
-      /<img src="https://image.flaticon.com/icons/svg/197/197738.svg" alt="rss feed" class="navbar-brand" />
       = link_to 'AwesomeApartmentRent', root_path, class: 'navbar-brand'
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
       ul.nav.navbar-nav.navbar-right
         - if current_user
           li
-            = link_to new_house_path do
+            = link_to root_path do
               | Your apartments
               span.badge #{current_user.houses.count}
           li

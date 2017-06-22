@@ -1,0 +1,18 @@
+.panel.panel-default
+  .panel-body
+    .text-center
+      = form_tag(houses_path, method: "get", id: "search-form") do
+        .field
+          .input-group
+            span.input-group-addon
+              = label_tag "City"
+            = text_field_tag :search, params[:search], placeholder: "Search by city", class: "form-control"
+          br
+          .actions
+            = link_to "Advanced search", new_search_path, class: 'btn btn-default'
+            = submit_tag "Search", class: 'btn btn-primary'
+
+- unless @houses.present?
+  .alert.alert-danger role="alert"
+    p
+      | By your request apartments not found. Try another city

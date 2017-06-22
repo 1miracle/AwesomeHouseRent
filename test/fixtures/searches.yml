@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  city: MyString
+  rooms: 1
+  sleep_places: 1
+  kitchen: false
+  heating: false
+  conditioner: false
+  animals_allowed: false
+  wi_fi: false
+  min_price: 9.99
+  max_price: 9.99
+  rating: 1
+
+two:
+  city: MyString
+  rooms: 1
+  sleep_places: 1
+  kitchen: false
+  heating: false
+  conditioner: false
+  animals_allowed: false
+  wi_fi: false
+  min_price: 9.99
+  max_price: 9.99
+  rating: 1

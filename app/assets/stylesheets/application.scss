@@ -1,6 +1,9 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
-
+ @import "jquery-ui";
+ @import "st";
+/*= require bootstrap-slider
+*/
 body {
     padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
 }
@@ -28,9 +31,7 @@ body {
 }
 
 .thumbnail img {
-    //width: auto;
     width: 100%;
-    //height: 90%;
 }
 
 .ratings {
@@ -152,6 +153,41 @@ label {
     margin-right: 6px;
 }
 
+.btn-default {
+    margin-right: 5px;
+}
+
+
 .photo_thumbnail {
     border-radius: 3px;
+}
+
+.label-default {
+    position: absolute;
+    top: 1px;
+    right: 41px; /* Положение от правого края */
+}
+
+.label-danger {
+  position: absolute;
+  top: 1px;
+  right: 16px; /* Положение от правого края */
+}
+
+.glyphicon-pencil {
+    color: white;
+    padding-right: 0px;
+}
+
+.glyphicon-pencil:hover {
+    color: #adadad;
+}
+
+.remove-x {
+    color: white;
+    padding-right: 0px;
+}
+
+.remove-x:hover {
+    color: #dc8f8f;
 }

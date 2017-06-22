@@ -4,6 +4,12 @@ class HousesController < ApplicationController
 
   def index
     @houses = House.all.page(params[:page]).per_page(6)
+
+    if params[:search]
+      @houses = House.search(params[:search]).page(params[:page]).per_page(6)
+    else
+      @houses = House.all.page(params[:page]).per_page(6)
+    end
   end
 
   def show

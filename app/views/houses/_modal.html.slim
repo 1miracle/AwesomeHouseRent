@@ -1,0 +1,81 @@
+.modal.fade role="dialog" tabindex="-1"
+  .modal-dialog role="document"
+    .modal-content
+      .modal-header
+        button.close aria-label="Close" data-dismiss="modal" type="button"
+          span aria-hidden="true"
+			       | &times;
+        .modal-title
+          = image_tag(@house.photo, class: "img-responsive img-rounded center-block")
+      .modal-body
+        .panel.panel-default
+          .panel-body
+            .text-center
+              = image_tag(@house.photo, class: "img-responsive img-rounded center-block")
+            br
+            .breadcrumb
+              .container
+                h2.strong Apartment for rent in #{@house.city}, #{@house.address}
+            blockquote
+              p.lead = @house.description
+            .breadcrumb
+              .container
+                span.glyphicon.glyphicon-tag
+                = number_to_currency(@house.price_per_day)
+                | /per day
+                br
+                span.glyphicon.glyphicon-tags
+                = number_to_currency(@house.price_per_month)
+                | /per month
+            br
+            .table-responsive
+              table.table.table-bordered.table-striped
+                colgroup
+                  col.col-xs-1
+                  col.col-xs-7
+                tbody
+                  tr
+                    th
+                      | Rooms
+                    td
+                      = @house.rooms
+                  tr
+                    th
+                      | Sleep places
+                    td
+                      = @house.sleep_places
+                  tr
+                    th
+                      | Floor
+                    td
+                      = @house.floor
+                  tr
+                    th
+                      | Number of floors
+                    td
+                      = @house.number_of_floors
+                  tr
+                    th
+                      | Kitchen
+                    td
+                      = bool_to_glyph(@house.kitchen)
+                  tr
+                    th
+                      | Heating
+                    td
+                      = bool_to_glyph(@house.heating)
+                  tr
+                    th
+                      | Conditioner
+                    td
+                      = bool_to_glyph(@house.conditioner)
+                  tr
+                    th
+                      | Animals allowed
+                    td
+                      = bool_to_glyph(@house.animals_allowed)
+                  tr
+                    th
+                      | WiFi
+                    td
+                      = bool_to_glyph(@house.wi_fi)

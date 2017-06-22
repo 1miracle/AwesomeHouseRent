@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'houses/index'
 
   resources :houses
+  resources :searches
   resources :profiles
   devise_for :users
   root to: 'houses#index'

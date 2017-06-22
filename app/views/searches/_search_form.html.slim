@@ -1,0 +1,80 @@
+= form_for @search do |f|
+  .panel.panel-default
+    .panel-body
+      .field
+        .input-group
+          span.input-group-addon
+            = f.label :city
+          = f.text_field :city, autocomplete: "off", class: 'form-control'
+      br
+      .field
+        .input-group
+          span.input-group-addon
+            = f.label :rooms
+          = f.number_field :rooms, autocomplete: "off", class: 'form-control'
+      br
+      .field
+        .input-group
+          span.input-group-addon
+            = f.label :sleep_places
+          = f.number_field :sleep_places, autocomplete: "off", class: 'form-control'
+      br
+      .text-center
+        .row-fluid
+          .span8.well
+            .field
+              label.checkbox-inline
+                = f.check_box :kitchen
+                = f.label :kitchen
+              label.checkbox-inline
+                = f.check_box :heating
+                = f.label :heating
+              label.checkbox-inline
+                = f.check_box :conditioner
+                = f.label :conditioner
+              label.checkbox-inline
+                = f.check_box :wi_fi
+                = f.label :wi_fi
+              label.checkbox-inline
+                = f.check_box :animals_allowed
+                = f.label :animals_allowed
+      br
+      .row-fluid
+        .span8.well
+          ul.nav.nav-tabs
+            li.active
+              a data-target="#per_day" data-toggle="tab" href="#per_day"
+                label Price per day
+            li
+              a data-target="#per_month" data-toggle="tab" href="#per_month"
+                label Price per month
+          .tab-content
+            #per_day.tab-pane.active.fade.in
+              br
+              .field
+                .input-group
+                  span.input-group-addon
+                    = f.label :min_price
+                  = f.number_field :min_price_per_day, autocomplete: "off", class: 'form-control'
+              br
+              .field
+                .input-group
+                  span.input-group-addon
+                    = f.label :max_price
+                  = f.number_field :max_price_per_day, autocomplete: "off", class: 'form-control'
+            #per_month.tab-pane
+              br
+              .field
+                .input-group
+                  span.input-group-addon
+                    = f.label :min_price
+                  = f.number_field :min_price_per_month, autocomplete: "off", class: 'form-control'
+              br
+              .field
+                .input-group
+                  span.input-group-addon
+                    = f.label :max_price
+                  = f.number_field :max_price_per_month, autocomplete: "off", class: 'form-control'
+      br
+      .actions
+        = f.submit "Search", class: 'btn btn-primary'
