@@ -34,8 +34,14 @@ class House < ApplicationRecord
   end
 
   def house_count_within_limit
-    if self.user.houses(:reload).count >= 3
-      errors.add(:base, "You reached the limit of creating apartments!")
+    unless self.user.verified_user?
+      if self.user.houses(:reload).count >= 3
+        errors.add(:base, "You reached the limit of creating apartments!")
+      end
+    else
+      if self.user.houses(:reload).count >= 10
+        errors.add(:base, "You reached the limit of creating apartments!")
+      end
     end
   end
 end

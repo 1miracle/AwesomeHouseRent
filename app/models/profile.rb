@@ -6,4 +6,8 @@ class Profile < ApplicationRecord
   def full_name
     "#{first_name} #{last_name}"
   end
+
+  def user_phone
+    "#{phone}"
+  end
 end

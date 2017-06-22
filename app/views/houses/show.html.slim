@@ -1,1 +1,24 @@
-= render 'house'
+.container
+  .row
+    .col-md-8
+      = render 'house'
+    .col-md-4
+      .thumbnail
+        - if @house.user.verified_user?
+          span.label.label-success.pull-right
+            span.glyphicon.glyphicon-ok.verified data-toggle="tooltip" data-placement="bottom" title="Verified user"
+            | Verified user
+        <img src="https://www.mautic.org/media/images/default_avatar.png" alt="..." class="img-circle center-block" id="your-img">
+        .breadcrumb
+          .text-center
+            | Contact person
+            br
+            strong #{  @house.user.full_name}
+          .container
+            .text-align
+              span.glyphicon.glyphicon-phone
+              = @house.user.phone
+              br
+              span.glyphicon.glyphicon-send
+              = @house.user.email
+              br

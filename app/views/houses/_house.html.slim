@@ -3,10 +3,10 @@
     .text-center
       = image_tag(@house.photo, class: "img-responsive img-rounded center-block")
     br
-    .breadcrumb
-      .container
-        h2.strong Apartment for rent in #{@house.city}, #{@house.address}
     blockquote
+      h2
+          | Apartment for rent in #{@house.city}, #{@house.address}
+    .breadcrumb
       p.lead = @house.description
     .breadcrumb
       .container

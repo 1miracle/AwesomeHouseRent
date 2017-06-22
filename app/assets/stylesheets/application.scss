@@ -12,6 +12,10 @@ body {
     width: 100%;
 }
 
+h2 {
+    word-break: break-all;
+}
+
 .carousel-holder {
     margin-bottom: 30px;
 }
@@ -190,4 +194,19 @@ label {
 
 .remove-x:hover {
     color: #dc8f8f;
+}
+
+#your-img {
+    height: auto;
+    width: auto;
+    max-width: 100px;
+    max-height: 100px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.verified {
+    bottom: 0px;
+    top: 1px;
+    padding-right: 5px;
 }
